@@ -95,4 +95,8 @@ class serial_container {
     T operator[](size_t pos) {
         return T(_arr[pos]);
     }
+
+    ~serial_container() {
+        delete[] _arr;
+    }
 };

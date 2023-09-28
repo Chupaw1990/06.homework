@@ -90,9 +90,13 @@ class list_container {
 
     size_t size() { return _size; }
 
-    Node<T> *get_at(int index) {
+    Node<T> *get_at(size_t index) {
+        if (index > _size) {
+            throw std::invalid_argument("Invalid list index");
+        }
+
         Node<T> *ptr = head;
-        int n = 0;
+        size_t n = 0;
 
         while (n != index) {
             if (ptr == nullptr)
